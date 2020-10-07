@@ -6,13 +6,12 @@ import { TodoContext } from '../contexts/TodoContext';
 const TodoList = () => {
   const { todos } = useContext<TodoContextType>(TodoContext);
   return (
-    <table className="uk-table">
-      <caption>Lista de Tarefas</caption>
+    <table className="uk-table uk-table-striped">
       <thead>
         <tr>
           <th>#</th>
           <th>Tarefa</th>
-          <th>#</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>

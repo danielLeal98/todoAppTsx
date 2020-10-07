@@ -1,15 +1,30 @@
 import React from 'react';
-import TodoContext from '../contexts/TodoContext';
-import NavBar from './Navbar';
+import Navbar from './Navbar';
 import TodoList from './TodoList';
+import TodoContext from '../contexts/TodoContext';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AddTodo from './AddTodo';
 
 const App = () => {
   return (
     <TodoContext>
-      <div className="uk-container">
-        <NavBar></NavBar>
-        <TodoList></TodoList>
-      </div>
+      <Router>
+        <Navbar></Navbar>
+        <br />
+        <div className="uk-container" style={{ paddingBottom: '30px' }}>
+          <Switch>
+            <Route path="/create">
+              <AddTodo></AddTodo>
+            </Route>
+            <Route path="/">
+              <h4>
+                <i className="fas fa-bars"></i> My to-do list{' '}
+              </h4>
+              <TodoList></TodoList>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </TodoContext>
   );
 };
